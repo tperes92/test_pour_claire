@@ -1,0 +1,110 @@
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_slider owl-carousel">
+                    <div class="single_banner_slider" style="max-height: 100px">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-counter"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+
+<!--================login_part Area =================-->
+<section class="login_part padding_top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_text text-center">
+                    <div class="login_part_text_iner">
+                        <h2>Tu as déjà un compte ?!</h2>
+                        <p>Connescte toi pour suivre tous les projets de la communauté. Click sur le lien ci-dessous pour te connecter ;)</p>
+                        <%= link_to "Je me connecte !", new_user_session_path,  :class => "btn_3"%>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_form">
+                    <div class="login_part_form_iner">
+                        <h3>Salut Futur Voisin !
+                            <p>Renseignes les informations demandées pour créer ton profil sur VoisinAct</p>
+
+                        </h3>
+
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'row contact_form' }) do |f| %>
+
+                        <%= render "devise/shared/error_messages", resource: resource %>
+
+                            
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :first_name, 'First Name', :class => 'sr-only' %>
+                              <%= f.text_field :first_name, autofocus: true, :class => "form-control ", placeholder: 'Prénom' %>
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :last_name, 'First Name', :class => 'sr-only' %>
+                              <%= f.text_field :last_name, autofocus: true, :class => "form-control ", placeholder: 'Nom' %>
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :description, 'Description', :class => 'sr-only'  %>
+                              <%= f.text_area :description, autofocus: true, autocomplete: "email", :class => "form-control ", placeholder: 'Parle nous de toi, ce que tu aimes dans la vie et tout ça ;)'  %>
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :city, 'City', :class => 'sr-only' %>
+                              <div class = "form-control">
+                              <span>Ville :</span>
+                              <%= f.select(:city_id, City.all.map { |city| [city.name, city.id]  }, :class => "form-control ") %>
+                            </div>
+                            </div>
+
+
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :email, 'Email Address', :class => 'sr-only'  %>
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control ", placeholder: 'Email Address'  %>
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :password, :class => 'sr-only' %>
+                              <%= f.password_field :password, autocomplete: "new-password", :class => "form-control ", placeholder: 'Password' %>
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :password_confirmation, 'Password Confirmation', :class => 'sr-only' %>
+                              <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control ", placeholder: 'Password Confirmation' %>
+                            </div>
+
+
+                            <div class="col-md-12 form-group">
+                                <%= f.submit "Créer Mon Compte", :class => 'btn_3' %>
+                            </div>
+
+
+
+                          <%end%>
+                        <%= render "devise/shared/links" %>
+                                                    <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================login_part end =================-->
+

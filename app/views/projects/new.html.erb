@@ -1,0 +1,66 @@
+  <head>
+   
+ </head>
+
+<body>
+
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_slider owl-carousel">
+                    <div class="single_banner_slider" style="max-height: 100px">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-counter"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+
+<section class="login_part padding_top">
+    <div class="container">
+      <div class="col-lg-12 col-md-12">
+        <div class="login_part_form col-lg-12 col-md-12">
+          <div class="login_part_form_iner">
+            <h3>Lance ton projet sur VoisinAct dès Maintenant !
+                <p>Veuillez s'il vous plaît décrire votre projet dans le formulaire ci-dessous</p>
+            </h3>
+
+              <%=form_tag url_for(action: 'create'), method: 'post' do %> 
+              <%= text_field_tag 'title' ,"", class:"form-control", placeholder: "Titre" %>
+              <br/>
+              <%= text_field_tag 'location' ,"", class:"form-control", placeholder: "Lieu" %><br/>
+              <br/>
+              <%= text_area_tag 'description' ,"", class:"form-control", placeholder: "Description" %><br/>
+              <%= number_field_tag 'number_of_participants' ,"", class:"form-control", placeholder: "Nombre de personnes supplémentaires requise pour la bonne conduite du projet" %><br/>
+              <%= number_field_tag 'amount_needed' ,"", class:"form-control", placeholder: "Budget souhaité pour votre projet" %><br/>
+              <%= submit_tag "Créer", class: 'btn_2' %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+</body>
+
+
+   
+
+
+ </html>

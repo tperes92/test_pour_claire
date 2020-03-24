@@ -1,0 +1,106 @@
+<head>
+
+</head>
+
+<body>
+ 
+
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_slider owl-carousel">
+                    <div class="single_banner_slider">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-8">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        <h1>Le Crowd Funding Entre Voisins </h1>
+                                        <p>Découvrez <b><strong>VoisinAct </strong></b>, la première plateforme pour <b><strong> améliorer le quotidien de nos quartiers </strong></b>. Parcours le site et découvre <b>les projets qui t'intéresse le plus </b>, tu pourras les soutenir <b>financièrement</b> ou même apporter <b>un coup de main</b> ! Quoi tu as une idée de projet ? Génial ! <b><strong>Présentes là à la communauté </strong></b> ! </p>
+                                        <%= link_to "Lance ton projet", new_project_path,  :class => "btn_2"%>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-4">
+                            <div class="banner_img d-none d-lg-block">
+                                <%= image_tag('VoisinJumbo.jpg') %>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-counter"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+
+    <!-- Les projets en cours-->
+    <section class="feature_part padding_top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section_tittle text-center">
+                        <h2><b>Les Projets En Cours</b></h2> <br><hr><p> Trier par ville </p>
+                        <%= link_to "Toutes", root_path,  :class => "btn_3"%>
+                        <% @cities.each do |city| %>
+                        <%= link_to city.name, root_path(by_city: city.name),  :class => "btn_3"%>
+                        <%end%>
+
+                        <hr>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                <% @projects.each do |project| %>
+                <div class="col-lg-4 col-sm-4">
+                    <div class="single_feature_post_text">
+                        <p><b> <%= project.city.name %></b></p>
+                        <h3><b><strong><%= project.title %></strong></b></h3>
+                        <p><b> <%= project.number_of_participants %> participants</b></p>
+                        <%= link_to "Plus d'informations", project_path(project.id), :class => 'feature_btn'%>
+  
+                        <img src="img/feature/feature_1.png" alt="">
+                        <br><h4><b>Objectif à atteindre <strong><%= project.amount_needed %> $</strong></b></h4>
+                    </div>
+                </div>
+                <%end%>
+            </div>
+        </div>
+    </section>
+    <!-- Les projets en cours-->
+
+
+
+    <!-- Projet du Mois-->
+    <section class="our_offer section_padding">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-6 col-md-6">
+                    <div class="offer_img">
+                        <img src="img/offer_img.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="offer_text">
+                        <h2>Le Super
+                            Projet du Mois !</h2>
+                       
+                     </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- awesome_shop part start-->
+
+    
+</body>
+
+</html>

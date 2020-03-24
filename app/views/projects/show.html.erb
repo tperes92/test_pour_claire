@@ -1,0 +1,252 @@
+<head>
+  <script src="https://kit.fontawesome.com/ec017e33af.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_slider owl-carousel">
+                    <div class="single_banner_slider" style="max-height: 100px">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-counter"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+
+  <!--================Single Product Area =================-->
+  <div class="product_image_area section_padding">
+    <div class="container">
+      <div class="row s_product_inner justify-content-between">
+        <div class="col-lg-7 col-xl-7">
+          <div class="product_slider_img">
+            <div id="vertical">
+              <div data-thumb="img/product/single-product/product_1.png">
+                <img src="img/product/single-product/product_1.png" />
+              </div>
+              <div data-thumb="img/product/single-product/product_1.png">
+                <img src="img/product/single-product/product_1.png" />
+              </div>
+              <div data-thumb="img/product/single-product/product_1.png">
+                <img src="img/product/single-product/product_1.png" />
+              </div>
+              <div data-thumb="img/product/single-product/product_1.png">
+                <img src="img/product/single-product/product_1.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-xl-4">
+          <div class="s_product_text">
+            <h5>previous <span>|</span> next</h5>
+            <h3><%= @project.title %></h3>
+            <ul class="list">
+              <li>
+                  <p>Type d'action : <b> Ecologique </b></p> 
+              </li>
+            </ul>
+            <ul>
+              <li>                                                          
+                <p> <h4> Ressources Requises</h4> Besoins Humains : <b> <%= @project.number_of_participants %> personnes </b> <br> Besoins financier : <b> <%= @project.amount_needed %> $ </b></p>
+              </li>
+              <li>  
+                <p> <%= @project.description %> </p>
+                <p> https://www.leetchi.com/fr/c/lW3bmkQl </p>
+              </li>
+            </ul>
+            <% if current_user != @project.architect %>
+              <div class="card_area d-flex justify-content-between align-items-center">
+                <% if @project.number_of_participants <= @project.attendances.length %>
+                  <p>Le nombre de participants maximum a été atteint.</p>
+                <% elsif @project.participants.include?(current_user) %>
+                  <p>Vous participez déjà à ce projet !</p>
+                <% else %>
+                  <%= button_to "Participer au projet", attendances_path, data: { confirm: "Voulez-vous rejoindre le projet ? Un email avec les coordonnées de l'organisateur vous sera alors envoyé." , disable_with: 'Déjà rejoint' }, params: { project_id: @project.id }, class: "btn_3" %>
+                <% end %>
+                <div class="like_us"> <i class="fas fa-heart"></i> 
+                  <%= link_to "Like", like_projects_path(project_id:@project.id), method: :post, :class=> 'btn btn-outline-danger' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================End Single Product Area =================-->
+
+  <!--================Product Description Area =================-->
+  <section class="product_description_area">
+    <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">Description</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Specification</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+            aria-selected="false">Questions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+            aria-selected="false">Personnes ayant rejoins le projet</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <p>
+            Description du projet
+          </p>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <h5>Date de début</h5>
+                  </td>
+                  <td>
+                    <h5>25/03/12</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Date de fin</h5>
+                  </td>
+                  <td>
+                    <h5>26/03/12</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Côut financiers</h5>
+                  </td>
+                  <td>
+                    <h5>1000 euros</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Nombre de personnes requises</h5>
+                  </td>
+                  <td>
+                    <h5>10gm</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Ville</h5>
+                  </td>
+                  <td>
+                    <h5>Paris</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Temps demandé</h5>
+                  </td>
+                  <td>
+                    <h5>2h par jour</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Profil recherché</h5>
+                  </td>
+                  <td>
+                    <h5>Ingénieur</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Autorisation de la mairie requise</h5>
+                  </td>
+                  <td>
+                    <h5>non</h5>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Product Description Area =================-->
+
+  <!-- product_list part start-->
+  <section class="product_list best_seller">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="section_tittle text-center">
+            <h2>Projets similaires </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-between">
+        <div class="col-lg-12">
+          <div class="best_product_slider owl-carousel">
+            <div class="single_product_item">
+              <img src="img/product/product_1.png" alt="">
+              <div class="single_product_text">
+                <h4>Quartz Belt Watch</h4>
+                <h3>$150.00</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="img/product/product_2.png" alt="">
+              <div class="single_product_text">
+                <h4>Quartz Belt Watch</h4>
+                <h3>$150.00</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="img/product/product_3.png" alt="">
+              <div class="single_product_text">
+                <h4>Quartz Belt Watch</h4>
+                <h3>$150.00</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="img/product/product_4.png" alt="">
+              <div class="single_product_text">
+                <h4>Quartz Belt Watch</h4>
+                <h3>$150.00</h3>
+              </div>
+            </div>
+            <div class="single_product_item">
+              <img src="img/product/product_5.png" alt="">
+              <div class="single_product_text">
+                <h4>Quartz Belt Watch</h4>
+                <h3>$150.00</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- product_list part end-->
+
+
+</body>

@@ -1,0 +1,70 @@
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_slider owl-carousel">
+                    <div class="single_banner_slider" style="max-height: 100px">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-counter"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+<br>
+<br>
+<section class="feature_product_area latest_product_area">
+        <div class="main_box">
+            <div class="container">
+
+                    <h1>Your Personal Informations</h1>
+                    <hr>
+                    <h4> Adresse mail: <%= @user.email %> <h4>
+                    <h4> Nom : <%=@user.last_name%><h4>
+                    <h4> Prénom : <%=@user.first_name%><h4>
+                    <h4> Description : <%=@user.description%><h4>
+                    <br>
+                    <%= link_to "Edit Informations",  edit_user_registration_path(current_user), :class => "btn_3" %>
+                    <br>
+                    <br>
+                    <h1> Vos Likes </h1>
+                    <hr>
+                    <br>
+                    <br>
+                    <h1> Vos Implications </h1>
+                    <hr>
+                    <% current_user.involved_projects.each do |project| %>
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="single_feature_post_text">
+                                <h3><b><strong><%= project.title %></strong></b></h3>
+                                <p><b> <%= project.number_of_participants %> participants</b></p>
+                                <p><b> <%= project.location %></b></p>
+                                <%= link_to "Plus d'informations", project_path(project.id), :class => 'feature_btn'%>
+          
+                                <img src="img/feature/feature_1.png" alt="">
+                                <br><h4><b>Objectif à atteindre <strong><%= project.amount_needed %> $</strong></b></h4>
+                            </div>
+                        </div>
+                    <% end %>
+              
+            </div>
+                            
+           
+        </div>
+    
+</section>
+
+
+

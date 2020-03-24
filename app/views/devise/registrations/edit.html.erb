@@ -1,0 +1,110 @@
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_slider owl-carousel">
+                    <div class="single_banner_slider" style="max-height: 100px">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-counter"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+
+<!--================login_part Area =================-->
+<section class="login_part padding_top">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <div class="col-lg-12 col-md-121">
+                <div class="login_part_form">
+                    <div class="login_part_form_iner">
+                        <h3>Mettre à jour mon Profil</h3>
+
+
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'row contact_form', method: :put }) do |f| %>
+
+                        <%= render "devise/shared/error_messages", resource: resource %>
+
+                            <div class="col-md-12 form-group p_star">
+                               <%= f.label :first_name, 'First Name', :class => 'sr-only' %>
+                                <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", :class => "form-control ", placeholder: 'Prénom' %>
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                               <%= f.label :last_name, 'Last Name', :class => 'sr-only' %>
+                                <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", :class => "form-control ", placeholder: 'Nom' %>
+                            </div>
+
+
+                            <div class="col-md-12 form-group p_star">
+                              <%= f.label :city, 'City', :class => 'sr-only' %>
+
+                              <%= f.select(:city_id, City.all.map { |city| [city.name, city.id]  }, autofocus: true, autocomplete: "city") %>
+
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                               <%= f.label :description, 'Description', :class => 'sr-only' %>
+                                <%= f.text_area :description, autofocus: true, autocomplete: "description", :class => "form-control ", placeholder: 'Ta description à changer si tu le souhaite' %>
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                               <%= f.label :email, 'Email', :class => 'sr-only' %>
+                                <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control ", placeholder: 'Email Address' %>
+                            </div>
+
+                            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                            <% end %>
+
+                            <div class =" col-md-12 form-group ">
+                              <%= f.label :password, :class => 'sr-only' %> 
+                              <%= f.password_field :password, autocomplete: "new-password", :class => "form-control ", placeholder: "New Password" %>
+                              <i>(Leave blank if you dont change your password)</i>
+                            </div>
+
+                            <div class =" col-md-12 form-group ">
+                              <%= f.label :password_confirmation, :class => 'sr-only' %>
+                              <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control ", placeholder: 'Confirm New Password' %>
+                            </div>
+
+                            <div class =" col-md-12 form-group ">
+                              <%= f.label :current_password, :class => 'sr-only' %> <br />
+                              <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control ", placeholder: 'Current Password' %>
+                              <i>(we need your current password to confirm your changes)</i>
+                            </div>
+
+
+                            <div class =" col-md-12 form-group ">
+                              <%= f.submit "Update", :class => 'btn_3' %>
+                            </div>
+                          <% end %>
+
+                          <h4>Cancel my account</h4>
+
+                          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+                          <%= link_to "Back", :back %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================login_part end =================-->
+
+

@@ -1,0 +1,2 @@
+module WishlistProjectsHelper
+end
